@@ -1,0 +1,43 @@
+GetAllTours()
+*************
+
+DROP PROCEDURE IF EXISTS GetAllTours;
+
+DELIMITER // 
+CREATE PROCEDURE GetAllTours() 
+BEGIN 
+SELECT * FROM tours; 
+END // 
+DELIMITER ;
+
+GetToursByPrice()
+*****************
+
+DROP PROCEDURE IF EXISTS GetToursByPrice;
+
+DELIMITER // 
+CREATE PROCEDURE GetToursByPrice(IN maxPrice DOUBLE) 
+BEGIN 
+SELECT * FROM tours
+WHERE price <= maxPrice; 
+END // 
+DELIMITER ;
+
+GetToursWithCountByPrice
+************************
+
+DROP PROCEDURE IF EXISTS GetToursWithCountByPrice;
+
+DELIMITER // 
+CREATE PROCEDURE GetToursWithCountByPrice(IN maxPrice DOUBLE, OUT total INT) 
+BEGIN 
+
+SELECT Count(*) INTO total FROM tours
+WHERE price <= maxPrice; 
+
+SELECT * FROM tours
+WHERE price <= maxPrice; 
+
+END // 
+DELIMITER ;
+
