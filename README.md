@@ -1,2 +1,1 @@
 # JDBC
-JDBC Tutorials
